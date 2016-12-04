@@ -24,3 +24,7 @@ body {
 .btn-delete {
   float: right;
 }
+
+#wheelme {
+  font-size: 14px;
+}
