@@ -28,3 +28,15 @@ body {
 #wheelme {
   font-size: 14px;
 }
+
+#window-resize {
+  background-color: blueviolet;
+  width: 100px;
+  height: 100px;
+}
+
+#mouseover-box {
+  background-color: darkred;
+  width: 100px;
+  height: 100px;
+}
