@@ -1,5 +1,6 @@
 var wheelPosition = 0
 var counter = 0
+var invisible = true
 
 window.onload = function () {
     //Event 1: wheel
@@ -8,7 +9,10 @@ window.onload = function () {
     document.getElementById("clickme-onclick").onclick = clickmeClick
     //Event 2.5: onclick (hide element)
     document.getElementById("alert-hide").onclick = function() {
-        document.getElementById("alert-bar").style.display = "none"
+        $("#alert-bar").addClass('visuallyhidden')
+        $("#alert-bar").one('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', function() {
+            $("#alert-bar").addClass('hidden')
+        })
     }
     //Event 3: keypress
     document.getElementById("textfield").addEventListener("keyup", keyPressHandler)
@@ -38,8 +42,15 @@ function wheel(e) {
 
 //Show hidden button on click
 function clickmeClick() {
-    document.getElementById("hidden-button").style.display = ""
-    document.getElementById("clickme-hidden").addEventListener("click", hiddenButtonCounterIncrement)
+    if (invisible)
+    {
+        invisible = false
+        $("#hidden-button").toggleClass('hidden')
+        setTimeout(function() {
+            $("#hidden-button").toggleClass('visuallyhidden')
+        }, 1);
+        document.getElementById("clickme-hidden").addEventListener("click", hiddenButtonCounterIncrement)
+    }
 }
 
 //Increment counter when hidden button clicked (change innerHTML)

@@ -40,3 +40,19 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+#alert-bar {
+  transition: all 0.5s linear;
+}
+
+#hidden-button {
+  transition: all 0.5s linear;
+}
